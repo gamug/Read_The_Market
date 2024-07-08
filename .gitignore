@@ -1,0 +1,5 @@
+./engine_search/*
+./news_results/*
+/.git
+__pycache__/
+*.pyc
