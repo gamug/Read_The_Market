@@ -1,22 +1,10 @@
 import datetime, json, time, re, traceback
 from tqdm import tqdm
+import pandas as pd
 from duckduckgo_search import DDGS
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
-import pandas as pd
 
-companies  = [
-    "Ecopetrol", "Enel", "Grupo Argos", "Terpel", "Vanti", "Promigas", "Bancolombia", "BBVA", "Grupo AVAL", "Davivienda", "Credibanco",
-    "Grupo Sura", "Itau", "Nequi", "Grupo Exito", "Cencosud", "Tiendas D1", "Alkosto", "Falabella", "Sodimac", "Caracol", "Empresa Claro", "ETB",
-    'GeoPark', 'Empresa Brilla', 'Banco de Occidente', 'Cenit'
-    ]
-
-sources = ['larepublica', 'semana', 'eltiempo', 'lasillavacia', 'elcolombiano', 'portafolio', 'elespectador']
-
-sources_links = {
-    'semana': 'semana.com', 'larepublica': 'larepublica.co', 'eltiempo': 'eltiempo.com', 'lasillavacia': 'lasillavacia.com',
-    'elcolombiano': 'elcolombiano.com', 'portafolio': 'portafolio.co', 'elespectador': 'elespectador.com'
-    }
 
 def api_search(company, source, sources_links, sleep):
     results = DDGS().text(
