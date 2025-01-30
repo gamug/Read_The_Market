@@ -142,4 +142,4 @@ def save_db(final_news):
             db[key].append(value)
     db = pd.DataFrame(db)
     week_number = datetime.datetime.now().isocalendar()[1]
-    db.to_csv(os.path.join('news_results', f'week_{week_number}.csv'), index=0)
+    db.to_csv(os.path.join('news_results', f'week_{week_number}.csv'), index=0, sep='|')

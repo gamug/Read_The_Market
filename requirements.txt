@@ -54,7 +54,6 @@ packaging==24.1
 pandocfilters==1.5.1
 parso==0.8.4
 pickleshare==0.7.5
-pip==24.0
 platformdirs==4.2.2
 playwright==1.44.0
 prompt_toolkit==3.0.47

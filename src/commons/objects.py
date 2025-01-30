@@ -1,7 +1,7 @@
 companies  = [
-    "Ecopetrol", "Enel", "Grupo Argos", "Terpel", "Vanti", "Promigas", "Bancolombia", "BBVA", "Grupo AVAL", "Davivienda", "Credibanco",
-    "Grupo Sura", "Itau", "Banco Nequi", "Grupo Exito", "Cencosud", "Tiendas D1", "Alkosto", "Falabella", "Sodimac", "Caracol", "Empresa Claro", "ETB",
-    'GeoPark', 'Empresa Brilla', 'Banco de Occidente', 'Cenit', 'dolar'
+    "Ecopetrol", "Empresa Enel", "Grupo Argos", "Terpel", "Vanti", "Promigas", "Bancolombia", "BBVA", "Grupo AVAL", "Davivienda", "Empresa Credibanco",
+    "Grupo Sura", "Empresa Itau", "Banco Nequi", "Grupo Exito", "Cencosud", "Tiendas D1", "Alkosto", "Falabella", "Sodimac", "Empresa Caracol",
+    "Empresa Claro", "Empresa ETB", 'GeoPark', 'Empresa Brilla', 'Banco de Occidente', 'Empresa Cenit', 'dolar'
     ]
 
 sources = ['larepublica', 'semana', 'eltiempo', 'lasillavacia', 'elcolombiano', 'portafolio', 'elespectador']
