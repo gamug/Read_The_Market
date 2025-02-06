@@ -18,9 +18,11 @@ async def create_db(news_links=None):
     save_db(final_news)
 
 def get_links():
-    week_number = datetime.datetime.now().isocalendar()[1]
+    now = datetime.datetime.now()
+    week_number = now.isocalendar()[1]
+    year = now.year
     path = os.getcwd()
-    path = os.path.join(path, 'engine_search', f'week_{week_number}.json')
+    path = os.path.join(path, 'engine_search', f'year_{year}-week_{week_number}.json')
     with open(path, 'r') as f:
         news_links = json.loads(f.read())
     return news_links
@@ -34,7 +36,7 @@ async def do_webscraping(urls):
         docs_transformed = html2text_transformer.transform_documents(docs)
 
         news = []
-        for new in docs_transformed:
+        for i, new in enumerate(docs_transformed):
             if new != None:
                 metadata = new.metadata
                 title = metadata.get('title', '')
@@ -42,6 +44,7 @@ async def do_webscraping(urls):
                     'summary': new.page_content,
                     'title': title,
                     'metadata': metadata,
+                    'content': docs[i],
                     'clean_content': html2text.html2text(new.page_content)
                 })
         return news
@@ -141,5 +144,7 @@ def save_db(final_news):
             value = new[key] if key=='content' else new['metadata'][key]
             db[key].append(value)
     db = pd.DataFrame(db)
-    week_number = datetime.datetime.now().isocalendar()[1]
-    db.to_csv(os.path.join('news_results', f'week_{week_number}.csv'), index=0, sep='|')
+    now = datetime.datetime.now()
+    week_number = now.isocalendar()[1]
+    year = now.year
+    db.to_csv(os.path.join('news_results', f'year_{year}-week_{week_number}.csv'), index=0, sep='|')

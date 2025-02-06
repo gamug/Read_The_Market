@@ -45,8 +45,10 @@ def get_news_links(companies, sources, sources_links):
                 search_results[source] = aux
         pbar.close()
         driver.quit()
-        week_number = datetime.datetime.now().isocalendar()[1]
-        with open(f'engine_search/week_{week_number}.json', 'w') as f:
+        now = datetime.datetime.now()
+        week_number = now.isocalendar()[1]
+        year = now.year
+        with open(f'engine_search/year_{year}-week_{week_number}.json', 'w') as f:
             json.dump(search_results, f)
         return search_results
     except Exception:

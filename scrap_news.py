@@ -10,6 +10,7 @@ def do_scraping():
     print('farming links...')
     search_results = get_news_links(companies, sources, sources_links)
     print('scraping content...')
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     asyncio.get_event_loop().run_until_complete(create_db(search_results))
 
 
